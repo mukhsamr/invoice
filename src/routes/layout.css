@@ -1,0 +1,32 @@
+﻿@import 'tailwindcss';
+@plugin '@tailwindcss/forms';
+@plugin '@tailwindcss/typography';
+
+@theme {
+	--color-brand-50: #eef6ff;
+	--color-brand-100: #d8eafd;
+	--color-brand-500: #2f6fed;
+	--color-brand-600: #1f59d2;
+	--font-sans: 'Inter', 'Segoe UI', sans-serif;
+}
+
+:root {
+	color: #0f172a;
+	background: linear-gradient(180deg, #f8fbff 0%, #f8fafc 100%);
+	font-family: var(--font-sans);
+}
+
+body { min-height: 100vh; }
+.card { @apply rounded-3xl border border-slate-200/80 bg-white/90 shadow-sm backdrop-blur; }
+.input { @apply block w-full rounded-2xl border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-brand-500 focus:ring-brand-500; }
+.btn { @apply inline-flex items-center justify-center rounded-2xl px-4 py-2.5 text-sm font-medium transition; }
+.btn-primary { @apply inline-flex items-center justify-center rounded-2xl bg-brand-500 px-4 py-2.5 text-sm font-medium text-white transition hover:bg-brand-600; }
+.btn-secondary { @apply inline-flex items-center justify-center rounded-2xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-medium text-slate-700 transition hover:bg-slate-50; }
+.btn-danger { @apply inline-flex items-center justify-center rounded-2xl border border-rose-200 bg-rose-50 px-4 py-2.5 text-sm font-medium text-rose-600 transition hover:bg-rose-100; }
+.badge { @apply inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold; }
+.badge-draft { @apply inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-600; }
+.badge-issued { @apply inline-flex items-center rounded-full bg-blue-100 px-3 py-1 text-xs font-semibold text-blue-700; }
+.badge-paid { @apply inline-flex items-center rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold text-emerald-700; }
+.badge-overdue { @apply inline-flex items-center rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold text-amber-700; }
+.badge-cancelled { @apply inline-flex items-center rounded-full bg-rose-100 px-3 py-1 text-xs font-semibold text-rose-700; }
+@media print { body { background: white; } .no-print { display: none !important; } }

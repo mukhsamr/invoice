@@ -1,0 +1,23 @@
+﻿{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "invoice",
+  "compatibility_date": "2026-04-29",
+  "compatibility_flags": [
+    "nodejs_als"
+  ],
+  "account_id": "b6a02630f3cb7513a3b9c0b14a0907b0",
+  "main": ".svelte-kit/cloudflare/_worker.js",
+  "assets": {
+    "binding": "ASSETS",
+    "directory": ".svelte-kit/cloudflare"
+  },
+  "workers_dev": true,
+  "preview_urls": true,
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "invoice-db",
+      "database_id": "37220c3f-602e-4fbd-b690-f9aef02a6ccc"
+    }
+  ]
+}
