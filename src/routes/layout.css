@@ -1,32 +1,285 @@
-﻿@import 'tailwindcss';
-@plugin '@tailwindcss/forms';
-@plugin '@tailwindcss/typography';
+@import "tailwindcss";
+@plugin "@tailwindcss/forms";
+@plugin "@tailwindcss/typography";
 
 @theme {
-	--color-brand-50: #eef6ff;
-	--color-brand-100: #d8eafd;
-	--color-brand-500: #2f6fed;
-	--color-brand-600: #1f59d2;
-	--font-sans: 'Inter', 'Segoe UI', sans-serif;
+	/* Primary Colors - Deep Green Signature */
+	--color-primary: #003629;
+	--color-primary-container: #004d3d;
+	--color-primary-fixed-dim: #00594a;
+	--color-on-primary: #ffffff;
+	--color-on-primary-container: #e6f2ef;
+
+	/* Secondary Colors */
+	--color-secondary: #4c6b63;
+	--color-secondary-container: #cfe9df;
+	--color-on-secondary: #ffffff;
+	--color-on-secondary-container: #082019;
+
+	/* Tertiary - Deep Earth Tone */
+	--color-tertiary: #4c221c;
+	--color-tertiary-container: #6d3830;
+	--color-on-tertiary: #ffffff;
+	--color-on-tertiary-container: #ffdad4;
+
+	/* Surface & Background - Mint-tinted Off-white */
+	--color-surface: #f5f8f6;
+	--color-surface-bright: #ffffff;
+	--color-surface-container-lowest: #ffffff;
+	--color-surface-container-low: #e8f0ec;
+	--color-surface-container: #dfe9e4;
+	--color-surface-container-high: #d5e2dc;
+	--color-surface-container-highest: #c9d9d2;
+	--color-on-surface: #191c1c;
+	--color-on-surface-variant: #3f4947;
+
+	/* Outline - Ghost Borders */
+	--color-outline: #6f7977;
+	--color-outline-variant: #bfc9c5;
+
+	/* Error */
+	--color-error: #ba1a1a;
+	--color-error-container: #ffdad6;
+	--color-on-error: #ffffff;
+	--color-on-error-container: #410002;
+
+	/* Status Colors - Tonal */
+	--color-status-draft: #5f6368;
+	--color-status-draft-bg: #e8eaed;
+	--color-status-issued: #1967d2;
+	--color-status-issued-bg: #d2e3fc;
+	--color-status-paid: #137333;
+	--color-status-paid-bg: #ceead6;
+	--color-status-overdue: #ea8600;
+	--color-status-overdue-bg: #feefc3;
+	--color-status-cancelled: #d93025;
+	--color-status-cancelled-bg: #fce8e6;
+
+	/* Typography - Editorial Voice */
+	--font-display: "Manrope", "Inter", system-ui, sans-serif;
+	--font-sans: "Inter", system-ui, -apple-system, sans-serif;
+
+	/* Font Sizes - High Contrast Scale */
+	--font-size-display-lg: 3.5rem;
+	--font-size-display-md: 2.75rem;
+	--font-size-display-sm: 2.25rem;
+	--font-size-headline-lg: 2rem;
+	--font-size-headline-md: 1.75rem;
+	--font-size-headline-sm: 1.5rem;
+	--font-size-title-lg: 1.375rem;
+	--font-size-title-md: 1.125rem;
+	--font-size-title-sm: 1rem;
+	--font-size-body-lg: 1rem;
+	--font-size-body-md: 0.875rem;
+	--font-size-body-sm: 0.8125rem;
+	--font-size-label-lg: 0.875rem;
+	--font-size-label-md: 0.75rem;
+	--font-size-label-sm: 0.6875rem;
+
+	/* Spacing - Breathing Room */
+	--spacing-xs: 0.5rem;
+	--spacing-sm: 0.75rem;
+	--spacing-md: 1rem;
+	--spacing-lg: 1.5rem;
+	--spacing-xl: 2rem;
+	--spacing-2xl: 3rem;
+	--spacing-3xl: 4rem;
+	--spacing-4xl: 6rem;
+
+	/* Border Radius - No Sharp Corners */
+	--radius-sm: 0.25rem;
+	--radius-default: 0.375rem;
+	--radius-md: 0.5rem;
+	--radius-lg: 0.75rem;
+	--radius-xl: 1rem;
+	--radius-2xl: 1.5rem;
+	--radius-full: 9999px;
+
+	/* Shadows - Ambient & Diffused */
+	--shadow-ambient-sm: 0 2px 24px rgba(0, 54, 41, 0.04);
+	--shadow-ambient-md: 0 4px 32px rgba(0, 54, 41, 0.06);
+	--shadow-ambient-lg: 0 8px 48px rgba(0, 54, 41, 0.08);
 }
 
 :root {
-	color: #0f172a;
-	background: linear-gradient(180deg, #f8fbff 0%, #f8fafc 100%);
+	color: var(--color-on-surface);
+	background: var(--color-surface);
 	font-family: var(--font-sans);
+	letter-spacing: -0.01em;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
-body { min-height: 100vh; }
-.card { @apply rounded-3xl border border-slate-200/80 bg-white/90 shadow-sm backdrop-blur; }
-.input { @apply block w-full rounded-2xl border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-brand-500 focus:ring-brand-500; }
-.btn { @apply inline-flex items-center justify-center rounded-2xl px-4 py-2.5 text-sm font-medium transition; }
-.btn-primary { @apply inline-flex items-center justify-center rounded-2xl bg-brand-500 px-4 py-2.5 text-sm font-medium text-white transition hover:bg-brand-600; }
-.btn-secondary { @apply inline-flex items-center justify-center rounded-2xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-medium text-slate-700 transition hover:bg-slate-50; }
-.btn-danger { @apply inline-flex items-center justify-center rounded-2xl border border-rose-200 bg-rose-50 px-4 py-2.5 text-sm font-medium text-rose-600 transition hover:bg-rose-100; }
-.badge { @apply inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold; }
-.badge-draft { @apply inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-600; }
-.badge-issued { @apply inline-flex items-center rounded-full bg-blue-100 px-3 py-1 text-xs font-semibold text-blue-700; }
-.badge-paid { @apply inline-flex items-center rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold text-emerald-700; }
-.badge-overdue { @apply inline-flex items-center rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold text-amber-700; }
-.badge-cancelled { @apply inline-flex items-center rounded-full bg-rose-100 px-3 py-1 text-xs font-semibold text-rose-700; }
-@media print { body { background: white; } .no-print { display: none !important; } }
+body {
+	min-height: 100vh;
+}
+
+/* Typography Classes */
+.display-lg { font-family: var(--font-display); font-size: var(--font-size-display-lg); font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; }
+.display-md { font-family: var(--font-display); font-size: var(--font-size-display-md); font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; }
+.headline-lg { font-family: var(--font-display); font-size: var(--font-size-headline-lg); font-weight: 600; line-height: 1.25; letter-spacing: -0.01em; }
+.headline-md { font-family: var(--font-display); font-size: var(--font-size-headline-md); font-weight: 600; line-height: 1.3; }
+.title-lg { font-size: var(--font-size-title-lg); font-weight: 600; line-height: 1.4; }
+.title-md { font-size: var(--font-size-title-md); font-weight: 600; line-height: 1.4; }
+.body-lg { font-size: var(--font-size-body-lg); font-weight: 400; line-height: 1.6; }
+.body-md { font-size: var(--font-size-body-md); font-weight: 400; line-height: 1.5; }
+.label-md { font-size: var(--font-size-label-md); font-weight: 500; line-height: 1.4; text-transform: uppercase; letter-spacing: 0.05em; }
+.label-sm { font-size: var(--font-size-label-sm); font-weight: 500; line-height: 1.4; text-transform: uppercase; letter-spacing: 0.05em; }
+/* Card Component - No Borders, Tonal Layering */
+.card {
+	@apply rounded-sm bg-surface-container-low p-6;
+	transition: background-color 0.2s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+	background-color: var(--color-surface-bright);
+	box-shadow: var(--shadow-ambient-sm);
+}
+
+.card-elevated {
+	@apply rounded-sm bg-surface-bright p-6;
+	box-shadow: var(--shadow-ambient-md);
+}
+
+/* Highlight Card - Status Emphasis */
+.card-highlight {
+	@apply rounded-sm bg-surface-bright p-6;
+	border-left: 4px solid var(--color-primary);
+	box-shadow: var(--shadow-ambient-sm);
+}
+
+/* Input Fields - Minimalist, Ghost Border */
+.input {
+	@apply block w-full rounded-default bg-surface-container-low px-4 py-3 text-on-surface;
+	font-size: var(--font-size-body-md);
+	border: none;
+	border-bottom: 1px solid rgba(0, 54, 41, 0.32);
+	transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.input::placeholder {
+	color: var(--color-on-surface-variant);
+}
+
+.input:focus {
+	outline: none;
+	border-bottom: 2px solid var(--color-primary);
+	background-color: var(--color-surface-bright);
+}
+
+/* Buttons - Precision & Intent */
+.btn {
+	@apply inline-flex items-center justify-center rounded-sm px-6 py-3 font-medium transition-all duration-200;
+	font-size: var(--font-size-body-md);
+}
+
+.btn-primary {
+	@apply inline-flex items-center justify-center rounded-sm px-6 py-3 font-medium text-on-primary transition-all duration-200;
+	background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-primary-container) 100%);
+	box-shadow: var(--shadow-ambient-sm);
+}
+
+.btn-primary:hover {
+	background: var(--color-primary-container);
+	box-shadow: var(--shadow-ambient-md);
+	transform: translateY(-1px);
+}
+
+.btn-secondary {
+	@apply inline-flex items-center justify-center rounded-sm bg-secondary-container px-6 py-3 font-medium text-on-secondary-container transition-all duration-200;
+}
+
+.btn-secondary:hover {
+	background-color: var(--color-secondary);
+	color: var(--color-on-secondary);
+}
+
+.btn-tertiary {
+	@apply inline-flex items-center justify-center rounded-sm bg-transparent px-6 py-3 font-medium text-primary transition-all duration-200;
+	text-decoration: underline;
+	text-underline-offset: 4px;
+	text-decoration-thickness: 1px;
+}
+
+.btn-tertiary:hover {
+	text-decoration-thickness: 2px;
+}
+
+.btn-danger {
+	@apply inline-flex items-center justify-center rounded-sm bg-error-container px-6 py-3 font-medium text-on-error-container transition-all duration-200;
+}
+
+.btn-danger:hover {
+	background-color: var(--color-error);
+	color: var(--color-on-error);
+}
+
+/* Badge - Status Indicators */
+.badge {
+	@apply inline-flex items-center rounded-sm px-3 py-1;
+	font-size: var(--font-size-label-sm);
+	font-weight: 500;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+}
+
+.badge-draft {
+	@apply inline-flex items-center rounded-sm px-3 py-1;
+	background-color: var(--color-status-draft-bg);
+	color: var(--color-status-draft);
+}
+
+.badge-issued {
+	@apply inline-flex items-center rounded-sm px-3 py-1;
+	background-color: var(--color-status-issued-bg);
+	color: var(--color-status-issued);
+}
+
+.badge-paid {
+	@apply inline-flex items-center rounded-sm px-3 py-1;
+	background-color: var(--color-status-paid-bg);
+	color: var(--color-status-paid);
+}
+
+.badge-overdue {
+	@apply inline-flex items-center rounded-sm px-3 py-1;
+	background-color: var(--color-status-overdue-bg);
+	color: var(--color-status-overdue);
+}
+
+.badge-cancelled {
+	@apply inline-flex items-center rounded-sm px-3 py-1;
+	background-color: var(--color-status-cancelled-bg);
+	color: var(--color-status-cancelled);
+}
+
+/* Section Dividers - No Lines, Surface Shifts */
+.section {
+	@apply py-8;
+}
+
+.section-alt {
+	@apply py-8 bg-surface-container-low;
+}
+
+/* Glassmorphism - Floating Elements */
+.glass {
+	background: rgba(248, 250, 249, 0.8);
+	backdrop-filter: blur(24px);
+	-webkit-backdrop-filter: blur(24px);
+	border: 1px solid rgba(191, 201, 197, 0.2);
+}
+
+/* Print Styles */
+@media print {
+	body {
+		background: white;
+	}
+	.no-print {
+		display: none !important;
+	}
+	.card, .card-elevated, .card-highlight {
+		box-shadow: none;
+		border: 1px solid var(--color-outline-variant);
+	}
+}
